@@ -10,6 +10,18 @@ import (
 	"github.com/labstack/echo"
 )
 
+// ListAccounts godoc
+// @Summary List accounts
+// @Description get accounts
+// @Accept  json
+// @Produce  json
+// @Param q query string false "name search by q"
+// @Success 200 {array} model.Account
+// @Header 200 {string} Token "qwerty"
+// @Failure 400 {object} httputil.HTTPError
+// @Failure 404 {object} httputil.HTTPError
+// @Failure 500 {object} httputil.HTTPError
+// @Router /accounts [get]
 var CreateAccount = func(ctx echo.Context) error {
 
 	account := &models.Account{}

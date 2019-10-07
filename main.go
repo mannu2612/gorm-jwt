@@ -8,6 +8,9 @@ import (
 	"./models"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
+	echoSwagger "github.com/swaggo/echo-swagger"
+
+	_ "github.com/swaggo/echo-swagger/example/docs"
 )
 
 func main() {
@@ -22,6 +25,7 @@ func main() {
 	})
 
 	e.POST("/api/user/new", controllers.CreateAccount)
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
 	r := e.Group("/api/user/login")
 
 	config := middleware.JWTConfig{
